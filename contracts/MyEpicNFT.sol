@@ -145,7 +145,7 @@ contract MyEpicNFT is ERC721URIStorage {
   }
 
   function pickRandomFirstWord(uint256 tokenId)
-    public
+    private
     view
     returns (string memory)
   {
@@ -157,7 +157,7 @@ contract MyEpicNFT is ERC721URIStorage {
   }
 
   function pickRandomSecondWord(uint256 tokenId)
-    public
+    private
     view
     returns (string memory)
   {
@@ -169,7 +169,7 @@ contract MyEpicNFT is ERC721URIStorage {
   }
 
   function pickRandomThirdWord(uint256 tokenId)
-    public
+    private
     view
     returns (string memory)
   {
@@ -181,7 +181,7 @@ contract MyEpicNFT is ERC721URIStorage {
   }
 
   function pickRandomColor(uint256 tokenId)
-    public
+    private
     view
     returns (string memory)
   {
