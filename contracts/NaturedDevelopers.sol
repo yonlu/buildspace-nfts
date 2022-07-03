@@ -9,7 +9,7 @@ import "hardhat/console.sol";
 
 import { Base64 } from "./libraries/Base64.sol";
 
-contract MyEpicNFT is ERC721URIStorage {
+contract NaturedDevelopers is ERC721URIStorage {
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
   uint256 private supplyCap = 50;
@@ -138,7 +138,7 @@ contract MyEpicNFT is ERC721URIStorage {
 
   event NewEpicNFTMinted(address sender, uint256 tokenId);
 
-  constructor() ERC721("SquareNFT", "SQUARE") {}
+  constructor() ERC721("NaturedDevelopers", "NDEV") {}
 
   function random(string memory input) internal pure returns (uint256) {
     return uint256(keccak256(abi.encodePacked(input)));
@@ -200,7 +200,10 @@ contract MyEpicNFT is ERC721URIStorage {
     string memory first = pickRandomFirstWord(newItemId);
     string memory second = pickRandomSecondWord(newItemId);
     string memory third = pickRandomThirdWord(newItemId);
-    string memory combinedWord = string(abi.encodePacked(first, second, third));
+    string memory stringSpace = " ";
+    string memory combinedWord = string(
+      abi.encodePacked(first, stringSpace, second, stringSpace, third)
+    );
 
     // concatenate it all together, and then close the <text> and <svg> tags.
     string memory finalSvg = string(
