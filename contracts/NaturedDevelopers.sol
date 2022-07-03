@@ -136,7 +136,7 @@ contract NaturedDevelopers is ERC721URIStorage {
     "Hipster"
   ];
 
-  event NewEpicNFTMinted(address sender, uint256 tokenId);
+  event NaturedDevMinted(address sender, uint256 tokenId);
 
   constructor() ERC721("NaturedDevelopers", "NDEV") {}
 
@@ -242,24 +242,12 @@ contract NaturedDevelopers is ERC721URIStorage {
       abi.encodePacked("data:application/json;base64,", json)
     );
 
-    console.log(finalTokenUri);
-    console.log("\n--------------------");
-    console.log(
-      string(
-        abi.encodePacked("https://nftpreview.0xdev.codes/?code=", finalTokenUri)
-      )
-    );
-    console.log("--------------------\n");
-
     _safeMint(msg.sender, newItemId);
 
-    // Sets the NFTs data
     _setTokenURI(newItemId, finalTokenUri);
 
-    // Increment the counter for when the next NFT is minted
     _tokenIds.increment();
-    console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
 
-    emit NewEpicNFTMinted(msg.sender, newItemId);
+    emit NaturedDevMinted(msg.sender, newItemId);
   }
 }
